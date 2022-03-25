@@ -1,19 +1,33 @@
 ## TRABALHO I DE BUSCA E ORDENAÇÃO 
-#### Por: Breno Vambáster
-
-## 1. To-do list
-- [x] Mostrar o estado da lista a cada iteração do algoritmo, i.e. ao nal de cada iteração do while da linha 5 do Algoritmo 3 do estudo dirigido 3.
-- [x] Mostrar o número de acessos à estrutura de dados (você pode considerar tanto escrita como leitura como acesso) ao nal da execução do Bubble Sort.
-- [x] Teste 4.1
-- [x] Teste 4.2 
+Por: Breno Vambáster Cardoso Lima
 
 
-## 2. Gráfico de acesso à memória  em função da quantidade de valores na lista de ordenação utilizando o algoritmo bubble sort
+
+- [1) O QUE É BUBBLE SORT?](#1-o-que-é-bubble-sort)
+- [2) Da motivação para a escolha do tipo de lista utilizada](#2-da-motivação-para-a-escolha-do-tipo-de-lista-utilizada)
+- [3. Aacesso à memória  em função da quantidade de valores na lista de ordenação utilizando o algoritmo bubble sort.](#3-aacesso-à-memória--em-função-da-quantidade-de-valores-na-lista-de-ordenação-utilizando-o-algoritmo-bubble-sort)
+- [4. Análise dos dados para o pior caso](#4-análise-dos-dados-para-o-pior-caso)
+
+
+
+# 1) O QUE É BUBBLE SORT? 
+-  Algoritmo de ordenação O(n²)
+- Funcionamento
+  - ![bubbleSort](./bubble_sort.png)
+
+
+# 2) Da motivação para a escolha do tipo de lista utilizada
+    Abrir OneNote;
+
+
+# 3. Aacesso à memória  em função da quantidade de valores na lista de ordenação utilizando o algoritmo bubble sort.
+
+Com a lista de valores gerada  randômicamente
 ![grafico](./graph_val_rand1.png)
 
 
 
-## 3. Análise dos dados para o pior caso 
+# 4. Análise dos dados para o pior caso 
 
 Seja a seguinte função para criarmos os vetores de pior caso;
     
@@ -27,7 +41,7 @@ int pior_caso(int *array, int tamanho_max)
 
     for (int i = 1; i <= tamanho_max; i++)
     {
-        // gerar vetor aleatorio;
+        // gerar vetor decrescente;
         for (int j = 0; j < i; j++)
         {
             array[j] = tamanho_max - j;
@@ -48,7 +62,7 @@ int pior_caso(int *array, int tamanho_max)
 
 ```
 
-Obtivemos o seguinte resultado para a quantidade de acessos no pior caso(lista decrescente):
+Obtivemos o seguinte resultado para a quantidade de acessos no pior caso (lista em ordem decrescente):
 
 ![grafico](graph_pior_caso1.png)
 

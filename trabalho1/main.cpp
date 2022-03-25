@@ -2,7 +2,7 @@
 #include <stdio.h>  /* printf, scanf, puts, NULL */
 #include <stdlib.h> /* srand, rand */
 #include <time.h>
-#define TAM_MAX 100
+#define TAM_MAX_VET 100
 using namespace std;
 
 int imprime(int *array, int tamanho)
@@ -46,12 +46,12 @@ int bubble_sort(int *array, int tamanho, int op)
     return num_acessos;
 }
 
-int teste2(int *array, int tamanho_max)
+int teste2(int *array, int tamanho)
 {
     /*  para cada vetor gerado, armazenar o número de acesso e a quantidade de valores no array */
-    int array_num_acessos[TAM_MAX], array_qtd_valores[TAM_MAX];
+    int array_num_acessos[TAM_MAX_VET], array_qtd_valores[TAM_MAX_VET];
 
-    for (int i = 1; i <= tamanho_max; i++)
+    for (int i = 1; i <= tamanho; i++)
     {
         // gerar vetor aleatorio;
         for (int j = 0; j < i; j++)
@@ -68,21 +68,22 @@ int teste2(int *array, int tamanho_max)
         cout << "\n\n";
     }
 
-    imprime(array_num_acessos, tamanho_max);
-    imprime(array_qtd_valores, tamanho_max);
+    imprime(array_num_acessos, tamanho);
+    cout << "\n";
+    imprime(array_qtd_valores, tamanho);
 }
-int pior_caso(int *array, int tamanho_max)
+int pior_caso(int *array, int tamanho)
 {
 
     /*  para cada vetor gerado, armazenar o número de acesso e a quantidade de valores no array */
-    int array_num_acessos[TAM_MAX], array_qtd_valores[TAM_MAX];
+    int array_num_acessos[TAM_MAX_VET], array_qtd_valores[TAM_MAX_VET];
 
-    for (int i = 1; i <= tamanho_max; i++)
+    for (int i = 1; i <= tamanho; i++)
     {
-        // gerar vetor aleatorio;
+        // gerar vetor decrescente;
         for (int j = 0; j < i; j++)
         {
-            array[j] = tamanho_max - j;
+            array[j] = tamanho - j;
         }
         cout << "array:" << i << endl;
         cout << "  array gerado:";
@@ -94,21 +95,22 @@ int pior_caso(int *array, int tamanho_max)
         cout << "\n\n";
     }
 
-    imprime(array_num_acessos, tamanho_max);
-    // imprime(array_qtd_valores, tamanho_max);
+    imprime(array_num_acessos, tamanho);
+    cout << "\n";
+    imprime(array_qtd_valores, tamanho);
 }
 int main()
 {
 
-    int array[TAM_MAX] = {70, 1, 12, 8, 99, 72, 5, 15, 20, 91, 14, 61, 66, 41, 81, 88, 16, 21, 34, 90};
+    int array[TAM_MAX_VET] = {70, 1, 12, 8, 99, 72, 5, 15, 20, 91, 14, 61, 66, 41, 81, 88, 16, 21, 34, 90};
 
     int op;
 
     cout << "Digite [1] para mostrar o estado da lista a cada iteração do algoritmo" << endl;
     cout << "Digite [2] Mostrar o número de acessos à estrutura de dados" << endl;
     // cin >> op;
-    op = 1;
-    // bubble_sort(array, 20, 2);
-    //  imprime(array, 20);
-    pior_caso(array, 100);
+    // bubble_sort(array, 20, op);
+    cout << "\n---- array ordenado---\n";
+    // imprime(array, 20);
+    teste2(array, TAM_MAX_VET);
 }
