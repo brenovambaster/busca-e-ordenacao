@@ -9,7 +9,7 @@
 
 
 ## 2. Gráfico de acesso à memória  em função da quantidade de valores na lista de ordenação utilizando o algoritmo bubble sort
-![grafico](./graph_val_rand.png)
+![grafico](./graph_val_rand1.png)
 
 
 
@@ -50,5 +50,5 @@ int pior_caso(int *array, int tamanho_max)
 
 Obtivemos o seguinte resultado para a quantidade de acessos no pior caso(lista decrescente):
 
-![grafico](graph_pior_caso.png)
+![grafico](graph_pior_caso1.png)
 
