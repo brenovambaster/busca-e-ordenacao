@@ -22,6 +22,8 @@ int main()
     l1.imprime();
     l1.merge_sort();
     l1.imprime();
+    l1.merge_sort();
+    l2.
 
     return 0;
 }

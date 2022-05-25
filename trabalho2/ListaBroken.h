@@ -4,7 +4,7 @@
 #include <time.h>
 #include <fstream>
 
-using namespace std;
+using namespace std;    
 
 #define MAX_INTEIROS 100
 
