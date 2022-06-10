@@ -7,14 +7,14 @@
 #include <tuple>
 
 #define MAX_TAM 100
-unsigned TEST = 1;
+#define MSTR_ESTADO 0 // Mostrar estado da lista a cada interação
 
 using namespace std;
 
 void print_array(int *array, unsigned tamanho)
 {
-    cout << "\n Estado do array\n";
-    cout << "[ ";
+    // cout << "\nEstado do array\n";
+    cout << "\n[ ";
     for (int i = 0; i < tamanho; i++)
     {
         cout << array[i] << " ";

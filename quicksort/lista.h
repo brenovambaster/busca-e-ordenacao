@@ -19,7 +19,7 @@ public:
     }
     void imprime()
     {
-        cout << " { ";
+        cout << "{ ";
         for (int i = 0; i < tamanho; i++)
         {
             cout << " " << numbers[i]; // estamos invocando o método imprime da classe aluno
@@ -60,29 +60,41 @@ public:
     {
         int pivo = v[fim], qtd_acesso = 0;
         int i = inicio;
+        if (MSTR_ESTADO)
+        {
+            cout << "pivo: " << pivo << endl;
+            imprime();
+            cout << endl;
+        }
         for (int j = inicio; j <= fim - 1; j++)
         {
-            cout << "\npivo: " << pivo << endl;
+
             if (v[j] <= pivo)
             {
-                // imprime();
-                cout << endl;
+
                 int aux;
                 aux = v[i];
                 v[i] = v[j];
                 v[j] = aux;
                 i++;
                 qtd_acesso += 3;
-                imprime();
-                cout << endl;
+
+                /*   if (MSTR_ESTADO)
+                  {
+                      print_array(v, fim);
+                      cout << endl;
+                  } */
             }
         }
         int aux = v[i];
         v[i] = v[fim];
         v[fim] = aux;
         qtd_acesso += 3;
-        imprime();
-        cout << endl;
+        if (MSTR_ESTADO)
+        {
+            imprime();
+            cout << endl;
+        }
         return make_tuple(i, qtd_acesso);
     }
 
