@@ -1,11 +1,11 @@
 #ifndef LISTA_H_INCLUDED
 #define LISTA_H_INCLUDED
 #include "dependency.h"
-using namespace std;
 
 class Lista
 {
 public:
+    int NUM_ACCESS = 0;
     int numbers[MAX_TAM];
     unsigned tamanho;
 
@@ -19,10 +19,12 @@ public:
     }
     void imprime()
     {
+        cout << "{ ";
         for (int i = 0; i < tamanho; i++)
         {
-            cout << numbers[i] << " |"; // estamos invocando o método imprime da classe aluno
+            cout << " " << numbers[i]; // estamos invocando o método imprime da classe aluno
         }
+        cout << " }\n";
     }
     int verificaLimiteIntervalo(unsigned posicao, unsigned tamanho)
     {
@@ -53,12 +55,20 @@ public:
         }
     }
 
-    int partition(int *v, int inicio, int fim)
+    /* Retorna dois valores, [int posicao_pivo, int qtd_acesso], */
+    std::tuple<int, int> partition(int *v, int inicio, int fim)
     {
-        int pivo = v[fim];
+        int pivo = v[fim], qtd_acesso = 0;
         int i = inicio;
+        if (MSTR_ESTADO)
+        {
+            cout << "pivo: " << pivo << endl;
+            imprime();
+            cout << endl;
+        }
         for (int j = inicio; j <= fim - 1; j++)
         {
+
             if (v[j] <= pivo)
             {
 
@@ -67,23 +77,43 @@ public:
                 v[i] = v[j];
                 v[j] = aux;
                 i++;
+                qtd_acesso += 3;
+
+                /*   if (MSTR_ESTADO)
+                  {
+                      print_array(v, fim);
+                      cout << endl;
+                  } */
             }
         }
         int aux = v[i];
         v[i] = v[fim];
         v[fim] = aux;
-        return i;
+        qtd_acesso += 3;
+        if (MSTR_ESTADO)
+        {
+            imprime();
+            cout << endl;
+        }
+        return make_tuple(i, qtd_acesso);
     }
 
-    void quicksort(int *v, int inicio, int fim)
+    int quicksort(int *v, int inicio, int fim)
     {
         int pivo;
+
         if (inicio < fim)
         {
-            pivo = partition(v, inicio, fim);
+            auto valores = partition(v, inicio, fim);
+            pivo = get<0>(valores);
+            NUM_ACCESS += get<1>(valores);
+            // cout << "Pivo: " << v[pivo] << endl;
+            // print_array(v, fim);
             quicksort(v, inicio, pivo - 1);
             quicksort(v, pivo + 1, fim);
         }
+
+        return NUM_ACCESS;
     }
 
     ~Lista(){};
