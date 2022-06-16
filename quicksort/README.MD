@@ -1,3 +1,7 @@
+# 0 Explicação em vídeo :
+[![Watch the video](https://img.youtube.com/vi/IWpMqWR0zAY/maxresdefault.jpg)](https://www.youtube.com/watch?v=IWpMqWR0zAY)
+
+
 # 1 Análise do algoritmo de ordenação quicksort sob diferentes tipos de entrada 
 
  ## 1.1 ***lista ordenada com valores crescentes (pior caso)***
